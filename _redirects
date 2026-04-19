@@ -1,0 +1,15 @@
+# Cloudflare Pages _redirects
+# Cloudflare automatically serves /capabilities.html when /capabilities is
+# requested (no rewrite rules needed). This file only handles legacy URLs
+# and alternate spellings.
+# First match wins.
+
+# Legacy home URLs -> root
+/home              /                         301
+/home.html         /                         301
+
+# Legacy spelling variants -> canonical
+/capability        /capabilities             301
+/partners          /partnerships             301
+/about             /leadership               301
+/team              /leadership               301

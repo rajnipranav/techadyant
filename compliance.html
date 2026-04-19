@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="https://i.ibb.co/qLg4QyNL/favicon.png">
+<link rel="apple-touch-icon" href="https://i.ibb.co/qLg4QyNL/favicon.png">
+<link rel="shortcut icon" href="https://i.ibb.co/qLg4QyNL/favicon.png">
+<title>Compliance &amp; Registrations &mdash; TechPavitra</title>
+<meta name="description" content="TechPavitra Private Limited is incorporated under the Companies Act, 2013. We maintain the registrations, licences, approvals and quality certifications required for our scope of operations, and treat compliance as a first-order engineering concern.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0E5A6A;
+    --teal-dark: #083B46;
+    --teal-deep: #052730;
+    --charcoal: #1B1F24;
+    --ink: #0F172A;
+    --body: #2E3A44;
+    --muted: #64748B;
+    --line: #E2E8F0;
+    --panel: #F5F7F8;
+    --panel-2: #EDF2F3;
+    --brass: #B08B45;
+    --brass-dark: #8C6E35;
+    --brass-soft: #D9BE89;
+    --brass-glow: #E6D1A0;
+    --tri-saffron: #FF9933;
+    --tri-green: #138808;
+    --white: #FFFFFF;
+    --radius: 10px;
+    --maxw: 1160px;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--body);
+    background: var(--white);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  /* ===== Breadcrumb ===== */
+  .crumb {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 22px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .crumb a {
+    color: rgba(255,255,255,0.78);
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 1px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .crumb a:hover { color: var(--brass-glow); border-color: var(--brass-soft); }
+  .crumb .sep { color: rgba(255,255,255,0.45); font-size: 11px; }
+  .crumb .here { color: rgba(255,255,255,0.85); }
+
+  /* ===== Hero ===== */
+  .hero {
+    background:
+      radial-gradient(1100px 520px at 88% -10%, rgba(176,139,69,0.12), transparent 62%),
+      linear-gradient(180deg, var(--teal-deep) 0%, var(--teal-dark) 55%, var(--teal) 100%);
+    color: var(--white);
+    padding: clamp(48px, 7vw, 88px) 0 clamp(56px, 9vw, 104px);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      var(--tri-saffron) 0%, var(--tri-saffron) 33.33%,
+      #FFFFFF 33.33%, #FFFFFF 66.66%,
+      var(--tri-green) 66.66%, var(--tri-green) 100%);
+    opacity: .9;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 20px;
+  }
+  .eyebrow::before {
+    content: ""; width: 32px; height: 1px; background: var(--brass-soft);
+    display: inline-block;
+  }
+  h1.hero-title {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: clamp(30px, 4.6vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 clamp(18px, 2.4vw, 28px);
+    color: var(--white);
+    max-width: 24ch;
+  }
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--brass-glow);
+    font-weight: 500;
+  }
+  .hero-sub {
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.6;
+    color: rgba(255,255,255,0.86);
+    max-width: 62ch;
+    margin: 0;
+  }
+  .hero-updated {
+    margin-top: 26px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ===== Section base ===== */
+  section.band { padding: clamp(60px, 8vw, 104px) 0; }
+  .band.alt { background: var(--panel); }
+  .section-head {
+    max-width: 64ch;
+    margin: 0 0 clamp(28px, 4vw, 48px);
+  }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--teal);
+  }
+  h2.section-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .section-lead {
+    font-size: clamp(16px, 1.6vw, 18px);
+    color: var(--body);
+    line-height: 1.6;
+    max-width: 62ch;
+    margin: 0;
+  }
+  .section-lead + .section-lead { margin-top: 14px; }
+
+  /* ===== Reg tables (key / value style) ===== */
+  .reg-group {
+    border-top: 1px solid var(--line);
+  }
+  .reg-group h3 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(19px, 2.1vw, 24px);
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 clamp(14px, 2vw, 20px);
+    padding-top: clamp(20px, 2.6vw, 28px);
+    font-weight: 600;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .reg-group h3 .group-num {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--brass-dark);
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(176,139,69,0.12);
+    border: 1px solid rgba(176,139,69,0.22);
+  }
+  .reg-rows {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr;
+    margin-bottom: clamp(28px, 3.4vw, 40px);
+  }
+  .reg-row {
+    display: grid;
+    gap: clamp(8px, 1.4vw, 20px);
+    grid-template-columns: 1fr;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  @media (min-width: 720px) {
+    .reg-row {
+      grid-template-columns: 1fr 2fr auto;
+    }
+  }
+  .reg-row:last-child { border-bottom: 0; }
+  .reg-key {
+    font-family: "Inter", sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .reg-val {
+    font-size: 14.5px;
+    color: var(--body);
+    line-height: 1.55;
+  }
+  .reg-val.pending {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .reg-status {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .reg-status.listed {
+    background: rgba(14,90,106,0.1);
+    color: var(--teal-dark);
+    border: 1px solid rgba(14,90,106,0.18);
+  }
+  .reg-status.pending {
+    background: var(--panel);
+    color: var(--muted);
+    border: 1px solid var(--line);
+  }
+
+  /* ===== Compliance domains (charcoal band) ===== */
+  .domains {
+    background: var(--charcoal);
+    color: var(--white);
+    padding: clamp(56px, 8vw, 92px) 0;
+  }
+  .domains .section-eyebrow {
+    color: var(--brass-glow);
+  }
+  .domains .section-eyebrow::before {
+    background: var(--brass-soft);
+  }
+  .domains h2.section-title {
+    color: var(--white);
+  }
+  .domains-body {
+    font-size: clamp(16px, 1.6vw, 18px);
+    color: rgba(255,255,255,0.82);
+    line-height: 1.65;
+    max-width: 64ch;
+    margin: 0 0 clamp(28px, 3vw, 36px);
+  }
+  .domains-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    .domains-list { grid-template-columns: 1fr 1fr; }
+  }
+  .domains-list li {
+    padding-left: 22px;
+    position: relative;
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.55;
+  }
+  .domains-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.62em;
+    width: 12px; height: 1px;
+    background: var(--brass);
+  }
+  .domains-list strong {
+    color: var(--white);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+
+  /* ===== Evidence / NDA pack ===== */
+  .evidence {
+    background:
+      linear-gradient(135deg, rgba(176,139,69,0.08) 0%, rgba(14,90,106,0.06) 100%),
+      var(--white);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: clamp(48px, 6vw, 72px) 0;
+  }
+  .ev-grid {
+    display: grid;
+    gap: clamp(24px, 3vw, 40px);
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+  @media (min-width: 860px) {
+    .ev-grid { grid-template-columns: 5fr 7fr; }
+  }
+  .ev-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 600;
+  }
+  .ev-head .ev-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass-dark);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .ev-body p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.65;
+    margin: 0 0 16px;
+  }
+  .ev-body p:last-child { margin-bottom: 0; }
+  .ev-email {
+    margin-top: 18px;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: var(--brass);
+    color: #1B1200;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 6px 20px rgba(140,110,53,0.24);
+    transition: background .2s ease, transform .15s ease;
+  }
+  .ev-email:hover { background: var(--brass-dark); color: var(--white); transform: translateY(-1px); }
+
+  /* ===== Legal disclosures ===== */
+  .legal-list {
+    display: grid;
+    gap: clamp(18px, 2.2vw, 26px);
+    grid-template-columns: 1fr;
+  }
+  .legal-item {
+    padding-top: 22px;
+    border-top: 2px solid var(--brass);
+  }
+  .legal-item h4 {
+    font-family: "Fraunces", serif;
+    font-size: clamp(17px, 1.9vw, 20px);
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .legal-item p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--body);
+    line-height: 1.65;
+  }
+  @media (min-width: 720px) {
+    .legal-list { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ===== Closing CTA ===== */
+  .close-band {
+    background: linear-gradient(100deg, var(--teal-deep) 0%, var(--teal) 100%);
+    color: var(--white);
+    padding: clamp(56px, 8vw, 92px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .close-band::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(700px 300px at 10% 10%, rgba(176,139,69,0.14), transparent 62%),
+      radial-gradient(600px 260px at 92% 92%, rgba(255,255,255,0.045), transparent 62%);
+    pointer-events: none;
+  }
+  .close-inner { position: relative; z-index: 1; }
+  .close-title {
+    font-family: "Fraunces", serif;
+    font-size: clamp(24px, 3.4vw, 36px);
+    line-height: 1.2;
+    margin: 0 0 14px;
+    font-weight: 600;
+    color: var(--white);
+    max-width: 32ch;
+  }
+  .close-sub {
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: rgba(255,255,255,0.86);
+    max-width: 58ch;
+    margin: 0 0 clamp(22px, 3vw, 30px);
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--brass);
+    color: #1B1200;
+    box-shadow: 0 6px 20px rgba(140,110,53,0.32);
+  }
+  .btn-primary:hover { background: var(--brass-dark); color: var(--white); transform: translateY(-1px); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.06);
+    color: var(--white);
+    border-color: rgba(255,255,255,0.35);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.6); }
+  .btn .arrow { transition: transform .15s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ===== A11y + misc ===== */
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  @media (max-width: 520px) {
+    .cta-row .btn { width: 100%; justify-content: center; }
+  }
+
+  /* ====================================================================
+     SITE-WIDE NAVIGATION
+     ==================================================================== */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    left: 0; right: 0;
+    z-index: 60;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--teal-dark);
+    letter-spacing: -0.005em;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .nav-brand img {
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+  .nav-brand .mark {
+    color: var(--brass);
+    font-weight: 600;
+  }
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: clamp(20px, 2.4vw, 34px);
+    list-style: none;
+    padding: 0; margin: 0;
+  }
+  @media (min-width: 860px) { .nav-links { display: inline-flex; } }
+  .nav-links a {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: var(--body);
+    padding: 8px 2px;
+    position: relative;
+    transition: color .15s ease;
+  }
+  .nav-links a:hover { color: var(--teal-dark); }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px;
+    background: var(--brass);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .2s ease;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a.is-active {
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+  .nav-links a.is-active::after { transform: scaleX(1); }
+
+  .nav-cta {
+    display: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--white);
+    background: var(--teal-dark);
+    padding: 9px 16px;
+    border-radius: 7px;
+    letter-spacing: 0.02em;
+    transition: background .15s ease, transform .12s ease;
+  }
+  @media (min-width: 1024px) { .nav-cta { display: inline-flex; align-items: center; gap: 8px; } }
+  .nav-cta:hover { background: var(--teal-deep); transform: translateY(-1px); }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 0;
+    color: var(--teal-dark);
+  }
+  @media (min-width: 860px) { .nav-toggle { display: none; } }
+  .nav-toggle svg { width: 20px; height: 20px; }
+
+  /* Mobile drawer — OPAQUE, lives at body level (sibling of .site-nav),
+     so it escapes the nav's backdrop-filter stacking context that otherwise
+     breaks position: fixed on mobile Safari and leaks the hero through. */
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 68px;
+    left: 0; right: 0; bottom: 0;
+    background: #ffffff;
+    background-color: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    z-index: 70;
+    padding: 24px clamp(20px, 4vw, 48px) 40px;
+    border-top: 1px solid var(--line);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    animation: drawerSlide .18s ease-out;
+  }
+  @keyframes drawerSlide {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .nav-drawer.is-open { display: block; }
+  @media (min-width: 860px) { .nav-drawer { display: none !important; } }
+  .nav-drawer ul {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .nav-drawer a {
+    display: block;
+    padding: 14px 2px;
+    border-bottom: 1px solid var(--line);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--body);
+    background: #ffffff;
+  }
+  .nav-drawer a.is-active { color: var(--teal-dark); font-weight: 600; }
+  .nav-drawer .drawer-cta {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--white);
+    background: var(--teal-dark);
+    padding: 12px 18px;
+    border-radius: 7px;
+    letter-spacing: 0.02em;
+    border-bottom: none !important;
+  }
+
+  /* Scrim behind the drawer — blocks pointer events, darkens the page
+     so the menu always reads cleanly even if background rendering glitches. */
+  .nav-drawer-scrim {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 25, 30, 0.42);
+    z-index: 65;
+  }
+  .nav-drawer-scrim.is-open { display: block; }
+  @media (min-width: 860px) { .nav-drawer-scrim { display: none !important; } }
+
+  /* Lock page scroll behind the drawer so iOS doesn't rubber-band weirdly */
+  body.nav-locked { overflow: hidden; }
+
+  /* ====================================================================
+     ENQUIRY MODAL (site-wide contact form, body-level sibling)
+     Triggered by any [data-open-form] element. Optional data-desk
+     attribute pre-selects the routing desk.
+     ==================================================================== */
+  .enquiry-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+  }
+  .enquiry-modal.is-open { display: block; }
+  .enquiry-modal-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 25, 30, 0.62);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    animation: scrimFade .22s ease-out;
+  }
+  @keyframes scrimFade { from { opacity: 0; } to { opacity: 1; } }
+
+  .enquiry-modal-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(640px, calc(100vw - 32px));
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.38), 0 2px 8px rgba(0,0,0,0.14);
+    padding: clamp(24px, 4vw, 40px);
+    animation: cardRise .26s cubic-bezier(.2,.8,.25,1);
+  }
+  @keyframes cardRise {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 14px)); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+  }
+  @media (max-width: 600px) {
+    .enquiry-modal-card {
+      left: 0; top: auto; bottom: 0;
+      transform: none;
+      width: 100%;
+      max-height: calc(100vh - 32px);
+      border-radius: 18px 18px 0 0;
+      padding: 24px 20px 28px;
+      animation: sheetUp .28s cubic-bezier(.2,.8,.25,1);
+    }
+    @keyframes sheetUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+  }
+
+  .enquiry-modal-close {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 36px; height: 36px;
+    border: none;
+    background: transparent;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--body);
+    cursor: pointer;
+    border-radius: 7px;
+    transition: background .15s ease;
+  }
+  .enquiry-modal-close:hover { background: rgba(0,0,0,0.05); color: var(--teal-dark); }
+
+  .enquiry-modal-head { margin-bottom: 20px; padding-right: 36px; }
+  .enquiry-modal-head .kicker {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 8px;
+  }
+  .enquiry-modal-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(22px, 3vw, 28px);
+    letter-spacing: -0.01em;
+    color: var(--teal-deep);
+    margin: 0 0 8px;
+    line-height: 1.15;
+  }
+  .enquiry-lede {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .enquiry-form { display: flex; flex-direction: column; gap: 14px; }
+  .enquiry-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 520px) { .enquiry-grid { grid-template-columns: 1fr 1fr; } }
+
+  .enquiry-field { display: flex; flex-direction: column; gap: 6px; }
+  .enquiry-label {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--body);
+    letter-spacing: 0.02em;
+  }
+  .enquiry-label .req { color: #c85a3a; margin-left: 2px; }
+  .enquiry-hint { font-weight: 400; color: var(--muted); margin-left: 4px; }
+
+  .enquiry-form input[type="text"],
+  .enquiry-form input[type="email"],
+  .enquiry-form select,
+  .enquiry-form textarea {
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    color: var(--body);
+    background: #fbfbfa;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 11px 12px;
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .enquiry-form textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+  .enquiry-form select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%235b6e75' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+  .enquiry-form input:focus,
+  .enquiry-form select:focus,
+  .enquiry-form textarea:focus {
+    outline: none;
+    border-color: var(--teal-dark);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(14, 90, 106, 0.15);
+  }
+  .enquiry-form input:invalid:not(:placeholder-shown),
+  .enquiry-form textarea:invalid:not(:placeholder-shown) {
+    border-color: #c85a3a;
+  }
+
+  /* Honeypot: visually hidden, not focusable */
+  .enquiry-hp {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px; height: 1px;
+    overflow: hidden;
+  }
+
+  .cf-turnstile { margin-top: 4px; min-height: 65px; }
+
+  .enquiry-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+  }
+  @media (min-width: 520px) {
+    .enquiry-footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+  .enquiry-privacy {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
+  .enquiry-privacy a {
+    color: var(--teal-dark);
+    border-bottom: 1px solid var(--brass-soft);
+  }
+
+  .enquiry-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    background: var(--teal-dark);
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background .15s ease, transform .12s ease, box-shadow .15s ease;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+    white-space: nowrap;
+  }
+  .enquiry-submit:hover:not(:disabled) {
+    background: var(--teal-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(14, 90, 106, 0.22);
+  }
+  .enquiry-submit:disabled { opacity: .65; cursor: wait; }
+  .enquiry-submit-arrow { transition: transform .2s ease; }
+  .enquiry-submit:hover:not(:disabled) .enquiry-submit-arrow { transform: translateX(3px); }
+
+  .enquiry-status {
+    margin-top: 4px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 8px;
+  }
+  .enquiry-status.is-ok {
+    padding: 12px 14px;
+    background: #e9f5ef;
+    color: #1f5a3f;
+    border: 1px solid #b9dcc8;
+  }
+  .enquiry-status.is-err {
+    padding: 12px 14px;
+    background: #fdecea;
+    color: #8a2c1a;
+    border: 1px solid #f3c4b8;
+  }
+
+  /* Contact-page desk cards: replace mailto link with CTA button */
+  .route-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ffffff;
+    background: var(--teal-dark);
+    padding: 9px 14px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background .15s ease, transform .12s ease;
+    text-decoration: none;
+  }
+  .route-cta:hover { background: var(--teal-deep); transform: translateY(-1px); color: #ffffff; }
+
+  /* ====================================================================
+     SITE-WIDE FOOTER
+     ==================================================================== */
+  .site-foot {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.82);
+    position: relative;
+    padding: clamp(44px, 6vw, 72px) 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .site-foot::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      var(--tri-saffron) 0%, var(--tri-saffron) 33.33%,
+      #FFFFFF 33.33%, #FFFFFF 66.66%,
+      var(--tri-green) 66.66%, var(--tri-green) 100%);
+    opacity: .85;
+  }
+  .foot-grid {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  @media (min-width: 720px) { .foot-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; } }
+  .foot-col h4 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass-glow);
+    margin: 0 0 14px;
+  }
+  .foot-brand {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--white);
+    letter-spacing: -0.005em;
+    margin: 0 0 12px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .foot-brand .mark { color: var(--brass-glow); }
+  .foot-brand img { height: 36px; width: auto; }
+  .foot-tag {
+    color: rgba(255,255,255,0.70);
+    max-width: 36ch;
+    margin: 0 0 18px;
+    font-size: 14px;
+  }
+  .foot-col ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  .foot-col a,
+  .foot-col li {
+    color: rgba(255,255,255,0.72);
+    transition: color .15s ease;
+    font-size: 14px;
+  }
+  .foot-col a:hover { color: var(--brass-glow); }
+  .foot-addr em {
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .foot-bottom {
+    margin-top: clamp(32px, 4vw, 48px);
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding: 20px clamp(20px, 4vw, 48px) 28px;
+    max-width: var(--maxw);
+    margin-left: auto; margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  .foot-bottom strong { color: rgba(255,255,255,0.78); font-weight: 600; }
+  .foot-bottom .legal a {
+    color: rgba(255,255,255,0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.20);
+    padding-bottom: 1px;
+    margin-left: 16px;
+  }
+  .foot-bottom .legal a:hover { color: var(--brass-glow); border-color: var(--brass-soft); }
+
+  /* ====================================================================
+     SITE-WIDE HERO — banner + gradient + radial glow + particle network
+     ==================================================================== */
+  .hero {
+    background:
+      linear-gradient(180deg,
+        rgba(5,39,48,0.50) 0%,
+        rgba(8,59,70,0.78) 55%,
+        rgba(14,90,106,0.88) 100%),
+      radial-gradient(900px 480px at 72% 42%, rgba(176,139,69,0.14), transparent 62%),
+      radial-gradient(1100px 560px at 28% 70%, rgba(14,90,106,0.30), transparent 65%),
+      url('https://i.ibb.co/sJ6V37qn/techpavitrabanner.png') center 20% / cover no-repeat,
+      linear-gradient(180deg, var(--teal-deep) 0%, var(--teal-dark) 55%, var(--teal) 100%) !important;
+  }
+  .hero > .wrap { position: relative; z-index: 2; }
+  #heroParticles {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #heroParticles { opacity: 0.7; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============== SITE NAV ============== -->
+<nav class="site-nav" aria-label="Primary">
+  <div class="site-nav-inner">
+    <a class="nav-brand" href="/" aria-label="TechPavitra home">
+      <img src="https://i.ibb.co/mCJy2htf/techpavitrablack.png" alt="TechPavitra">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" class="">Home</a></li>
+      <li><a href="/capabilities" class="">Capabilities</a></li>
+      <li><a href="/partnerships" class="">Partnerships</a></li>
+      <li><a href="/leadership" class="">Leadership</a></li>
+      <li><a href="/compliance" class="is-active">Compliance</a></li>
+      <li><a href="/contact" class="">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="/contact" data-open-form>Enquire &rarr;</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="navDrawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</nav>
+<!-- Drawer + scrim are SIBLINGS of the nav (not children) so they escape
+     the .site-nav backdrop-filter stacking context. This is what fixes the
+     transparent-drawer bug on mobile Safari. -->
+<div class="nav-drawer-scrim" id="navDrawerScrim" aria-hidden="true"></div>
+<aside class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Site menu">
+  <ul>
+    <li><a href="/" class="">Home</a></li>
+    <li><a href="/capabilities" class="">Capabilities</a></li>
+    <li><a href="/partnerships" class="">Partnerships</a></li>
+    <li><a href="/leadership" class="">Leadership</a></li>
+    <li><a href="/compliance" class="is-active">Compliance</a></li>
+    <li><a href="/contact" class="">Contact</a></li>
+  </ul>
+  <a class="drawer-cta" href="/contact" data-open-form>Enquire &rarr;</a>
+</aside>
+<script>
+(function(){
+  var toggle = document.querySelector('.nav-toggle');
+  var drawer = document.getElementById('navDrawer');
+  var scrim  = document.getElementById('navDrawerScrim');
+  if (!toggle || !drawer || !scrim) return;
+  function setOpen(open){
+    drawer.classList.toggle('is-open', open);
+    scrim.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-locked', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  toggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    setOpen(!drawer.classList.contains('is-open'));
+  });
+  scrim.addEventListener('click', function(){ setOpen(false); });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setOpen(false); });
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('is-open')) setOpen(false);
+  });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth >= 860) setOpen(false);
+  });
+})();
+</script>
+
+<!-- ============== ENQUIRY MODAL ============== -->
+<div class="enquiry-modal" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle" aria-hidden="true">
+  <div class="enquiry-modal-scrim" data-close-form></div>
+  <div class="enquiry-modal-card" role="document">
+    <button class="enquiry-modal-close" type="button" aria-label="Close enquiry form" data-close-form>&times;</button>
+    <div class="enquiry-modal-head">
+      <div class="kicker">Route my enquiry</div>
+      <h2 id="enquiryModalTitle">Let&rsquo;s start a conversation.</h2>
+      <p class="enquiry-lede">Tell us briefly what the enquiry is about and we&rsquo;ll route it to the right desk. Typical first reply within 3 business days.</p>
+    </div>
+    <form class="enquiry-form" id="enquiryForm" novalidate>
+      <div class="enquiry-grid">
+        <label class="enquiry-field">
+          <span class="enquiry-label">Your name <span class="req">*</span></span>
+          <input name="name" type="text" autocomplete="name" required maxlength="120" placeholder="Ananya Rao">
+        </label>
+        <label class="enquiry-field">
+          <span class="enquiry-label">Work email <span class="req">*</span></span>
+          <input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="ananya@company.com">
+        </label>
+      </div>
+      <label class="enquiry-field">
+        <span class="enquiry-label">Organization</span>
+        <input name="organization" type="text" autocomplete="organization" maxlength="200" placeholder="Company or institution">
+      </label>
+      <label class="enquiry-field">
+        <span class="enquiry-label">Which desk is this for? <span class="req">*</span></span>
+        <select name="desk" id="enquiryDesk" required>
+          <option value="general">General correspondence</option>
+          <option value="defence">Defence &amp; national security</option>
+          <option value="partnerships">Partnerships, JVs &amp; offsets</option>
+          <option value="consultancy">Consultancy &amp; systems integration</option>
+          <option value="compliance">Compliance, legal &amp; audit</option>
+        </select>
+      </label>
+      <label class="enquiry-field">
+        <span class="enquiry-label">Message <span class="req">*</span> <span class="enquiry-hint">&mdash; a few sentences of context</span></span>
+        <textarea name="message" rows="5" required minlength="20" maxlength="5000" placeholder="Briefly describe the programme, timeline and any disclosure constraints."></textarea>
+      </label>
+      <!-- Honeypot: humans never see this; bots fill it and get silently dropped -->
+      <div class="enquiry-hp" aria-hidden="true">
+        <label>Leave this blank: <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <!-- Cloudflare Turnstile (invisible challenge in most cases) -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAC_ilLN9GlQq1b4E" data-theme="light" data-size="flexible" data-callback="onTurnstileOk" data-expired-callback="onTurnstileExpire" data-error-callback="onTurnstileError"></div>
+      <div class="enquiry-footer">
+        <p class="enquiry-privacy">Your details are used only to route and reply to this enquiry. See our <a href="/compliance">compliance page</a>.</p>
+        <button class="enquiry-submit" type="submit">
+          <span class="enquiry-submit-label">Send enquiry</span>
+          <span class="enquiry-submit-arrow" aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+      <div class="enquiry-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<script>
+(function(){
+  var modal = document.getElementById('enquiryModal');
+  if (!modal) return;
+  var form = document.getElementById('enquiryForm');
+  var deskSelect = document.getElementById('enquiryDesk');
+  var status = modal.querySelector('.enquiry-status');
+  var submit = modal.querySelector('.enquiry-submit');
+  var submitLabel = modal.querySelector('.enquiry-submit-label');
+  var turnstileToken = '';
+
+  window.onTurnstileOk = function(token){ turnstileToken = token; };
+  window.onTurnstileExpire = function(){ turnstileToken = ''; };
+  window.onTurnstileError = function(){ turnstileToken = ''; };
+
+  function openModal(desk){
+    if (desk && deskSelect) {
+      var found = false;
+      for (var i = 0; i < deskSelect.options.length; i++) {
+        if (deskSelect.options[i].value === desk) { deskSelect.value = desk; found = true; break; }
+      }
+    }
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('nav-locked');
+    setTimeout(function(){
+      var focusable = modal.querySelector('input[name="name"]');
+      if (focusable) focusable.focus();
+    }, 60);
+  }
+
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('nav-locked');
+    resetStatus();
+  }
+
+  function resetStatus(){
+    status.textContent = '';
+    status.className = 'enquiry-status';
+    submit.disabled = false;
+    submitLabel.textContent = 'Send enquiry';
+  }
+
+  // Delegated trigger handling — any [data-open-form] or [data-close-form]
+  document.addEventListener('click', function(e){
+    var openTrigger = e.target.closest('[data-open-form]');
+    if (openTrigger) {
+      e.preventDefault();
+      openModal(openTrigger.getAttribute('data-desk') || '');
+      return;
+    }
+    var closeTrigger = e.target.closest('[data-close-form]');
+    if (closeTrigger) {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  // Auto-open via URL hash: #enquire or #enquire-<desk>
+  function checkHash(){
+    var h = window.location.hash || '';
+    if (h.indexOf('#enquire') === 0) {
+      var desk = h.replace('#enquire', '').replace(/^-/, '') || '';
+      openModal(desk);
+    }
+  }
+  window.addEventListener('load', checkHash);
+  window.addEventListener('hashchange', checkHash);
+
+  // Submit handler
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    resetStatus();
+    submit.disabled = true;
+    submitLabel.textContent = 'Sending\u2026';
+
+    var data = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      organization: form.organization.value.trim(),
+      desk: form.desk.value,
+      message: form.message.value.trim(),
+      website: form.website.value,
+      turnstileToken: turnstileToken
+    };
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r){
+      return r.json().then(function(j){ return { ok: r.ok, json: j }; });
+    }).then(function(res){
+      if (res.ok && res.json && res.json.ok) {
+        status.className = 'enquiry-status is-ok';
+        var safeEmail = String(data.email).replace(/[<>]/g, '');
+        status.innerHTML = '<strong>Thank you.</strong> Your enquiry has been sent. We&rsquo;ll reply to ' + safeEmail + ' within 3 business days.';
+        form.reset();
+        if (window.turnstile && typeof window.turnstile.reset === 'function') {
+          try { window.turnstile.reset(); } catch (e) {}
+        }
+        turnstileToken = '';
+        submitLabel.textContent = 'Sent';
+      } else {
+        var msg = (res.json && res.json.error) || 'Something went wrong. Please try again.';
+        status.className = 'enquiry-status is-err';
+        status.textContent = msg;
+        submit.disabled = false;
+        submitLabel.textContent = 'Send enquiry';
+      }
+    }).catch(function(){
+      status.className = 'enquiry-status is-err';
+      status.textContent = 'Network error. Please try again in a moment.';
+      submit.disabled = false;
+      submitLabel.textContent = 'Send enquiry';
+    });
+  });
+})();
+</script>
+
+
+<!-- HERO -->
+<header class="hero">
+    <canvas id="heroParticles" aria-hidden="true"></canvas>
+    <div class="wrap">
+    <div class="crumb">
+      <a href="/">Company</a>
+      <span class="sep">&rarr;</span>
+      <span class="here">Compliance &amp; Registrations</span>
+    </div>
+    <div class="eyebrow">Compliance &amp; Registrations</div>
+    <h1 class="hero-title">
+      Operating within a <em>structured regulatory framework.</em>
+    </h1>
+    <p class="hero-sub">
+      TechPavitra Private Limited is incorporated under the Companies Act, 2013. We maintain the registrations, licences, approvals and quality certifications required for our scope of operations, and we update this page as each new approval is granted.
+    </p>
+    <div class="hero-updated">Last updated: [month &amp; year]</div>
+  </div>
+</header>
+
+<!-- POSTURE -->
+<section class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Our posture</div>
+      <h2 class="section-title">Compliance as an engineering concern, not a paperwork exercise.</h2>
+      <p class="section-lead">
+        On defence-industry and critical-infrastructure programmes, quality, compliance and export-control obligations are not a final-stage box-ticking exercise &mdash; they are first-order engineering concerns, built into how the programme is scoped, resourced, delivered and sustained.
+      </p>
+      <p class="section-lead">
+        We list below the current state of our corporate and regulatory footing, the domains within which we operate, and the process by which serious counterparties can review our full evidence pack under NDA.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATIONS -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Current registrations</div>
+      <h2 class="section-title">Statutory and regulatory registrations we hold today.</h2>
+      <p class="section-lead">
+        Each registration below is either listed with its current reference, or marked as <em>to be listed</em> &mdash; meaning it is either under process, not yet required at our current scope, or awaiting publication on this page. We do not list aspirational registrations as held.
+      </p>
+    </div>
+
+    <!-- Corporate -->
+    <div class="reg-group">
+      <h3><span class="group-num">01</span> Corporate</h3>
+      <div class="reg-rows">
+        <div class="reg-row">
+          <div class="reg-key">Company type</div>
+          <div class="reg-val">Private Limited Company, incorporated in India</div>
+          <div><span class="reg-status listed">Listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">Incorporation framework</div>
+          <div class="reg-val">Companies Act, 2013</div>
+          <div><span class="reg-status listed">Listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">Corporate Identity Number (CIN)</div>
+          <div class="reg-val pending">[To be added]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">Permanent Account Number (PAN)</div>
+          <div class="reg-val pending">[To be added]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">Goods &amp; Services Tax (GSTIN)</div>
+          <div class="reg-val pending">[To be added]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">Registered office</div>
+          <div class="reg-val pending">[To be added]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MSME / Startup -->
+    <div class="reg-group">
+      <h3><span class="group-num">02</span> MSME &amp; Startup recognitions</h3>
+      <div class="reg-rows">
+        <div class="reg-row">
+          <div class="reg-key">Udyam / MSME registration</div>
+          <div class="reg-val pending">[To be added, if any]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">DPIIT Startup India recognition</div>
+          <div class="reg-val pending">[To be added, if any]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Defence & Export -->
+    <div class="reg-group">
+      <h3><span class="group-num">03</span> Defence &amp; export</h3>
+      <div class="reg-rows">
+        <div class="reg-row">
+          <div class="reg-key">Industrial Licence (IL) for defence manufacture</div>
+          <div class="reg-val pending">[Status to be confirmed]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">DGQA / DRDO vendor codes</div>
+          <div class="reg-val pending">[List to be added as each is granted]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">Importer-Exporter Code (IEC)</div>
+          <div class="reg-val pending">[To be added, if any]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">iDEX / TDF / Make selections</div>
+          <div class="reg-val pending">[To be added as each is granted]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quality & Infosec -->
+    <div class="reg-group">
+      <h3><span class="group-num">04</span> Quality &amp; information security</h3>
+      <div class="reg-rows">
+        <div class="reg-row">
+          <div class="reg-key">ISO 9001:2015 Quality Management System</div>
+          <div class="reg-val pending">[In place &middot; in progress &middot; planned &mdash; confirm]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">ISO/IEC 27001 Information Security</div>
+          <div class="reg-val pending">[In place &middot; in progress &middot; planned &mdash; confirm]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+        <div class="reg-row">
+          <div class="reg-key">AS9100 / sector-specific quality standards</div>
+          <div class="reg-val pending">[Status to be confirmed]</div>
+          <div><span class="reg-status pending">To be listed</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGULATORY DOMAINS (charcoal) -->
+<section class="domains">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Regulatory domains</div>
+      <h2 class="section-title">The frameworks our work is carried out within.</h2>
+    </div>
+
+    <p class="domains-body">
+      Regardless of which specific registrations are listed above, our work is scoped, planned and delivered within the established Indian and international regulatory frameworks that apply to defence, dual-use and critical-infrastructure technology.
+    </p>
+
+    <ul class="domains-list">
+      <li>
+        <strong>Defence Acquisition Procedure</strong>
+        The prevailing DAP and its category frameworks (Buy Indian &mdash; IDDM, Buy &amp; Make, Make I/II/III, etc.) govern our engagement in defence programmes.
+      </li>
+      <li>
+        <strong>DRDO schemes &amp; innovation routes</strong>
+        iDEX, Technology Development Fund and related innovation and co-development routes frame our technology-partnership engagements.
+      </li>
+      <li>
+        <strong>DGQA &amp; military-standard quality</strong>
+        Directorate General of Quality Assurance and relevant military-standard regimes govern our quality and acceptance workflows.
+      </li>
+      <li>
+        <strong>Cryptographic &amp; information-security standards</strong>
+        Indian cryptographic and information-security standards apply to our secure-communications and command-and-control work.
+      </li>
+      <li>
+        <strong>Export-control regulations</strong>
+        SCOMET and related export-control regulations govern cross-border movement of defence and dual-use goods, technology and software.
+      </li>
+      <li>
+        <strong>Goods &amp; Services Tax</strong>
+        GST registration and compliance apply to our commercial operations across India.
+      </li>
+      <li>
+        <strong>Labour, environment &amp; safety</strong>
+        Applicable labour, environmental and occupational-safety regulations apply to our employment, operational and manufacturing activity.
+      </li>
+      <li>
+        <strong>Data protection &amp; privacy</strong>
+        We operate within the Digital Personal Data Protection Act and related privacy frameworks for personal data we collect or process.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- EVIDENCE / NDA PACK -->
+<section class="evidence">
+  <div class="wrap">
+    <div class="ev-grid">
+      <div class="ev-head">
+        <span class="ev-tag">Procurement &amp; due diligence</span>
+        <h2>Need our full compliance evidence pack?</h2>
+      </div>
+      <div class="ev-body">
+        <p>
+          Specific registration numbers, licence references, certification evidence and audited financial information are shared under mutual NDA with procurement, partnership and due-diligence counterparties on request.
+        </p>
+        <p>
+          If you are running a vendor qualification, a partnership due-diligence or a procurement-side KYC exercise, write to us with the scope of your request and we will route an evidence pack through the appropriate channel within two working days.
+        </p>
+        <a class="ev-email" href="mailto:compliance@techpavitra.com">
+          compliance@techpavitra.com &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL DISCLOSURES -->
+<section class="band">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Legal notices</div>
+      <h2 class="section-title">How we describe our work, and what this page means.</h2>
+      <p class="section-lead">
+        These standing statements apply to every claim, reference and document published on the TechPavitra website and in the material we circulate to counterparties.
+      </p>
+    </div>
+
+    <div class="legal-list">
+      <div class="legal-item">
+        <h4>Scope of representations</h4>
+        <p>
+          Information on this website is provided for general awareness. Nothing on this website constitutes an offer or representation of capability beyond what is explicitly stated under a signed agreement.
+        </p>
+      </div>
+      <div class="legal-item">
+        <h4>NDA-based technical disclosure</h4>
+        <p>
+          Technical and commercial details relating to specific defence or government programmes are shared only under an executed Non-Disclosure Agreement with an authorised counterparty.
+        </p>
+      </div>
+      <div class="legal-item">
+        <h4>References &amp; third-party IP</h4>
+        <p>
+          References to partners, customers, technologies and programmes are used with permission or refer to publicly available information. Logos and marks of third parties remain the property of their respective owners.
+        </p>
+      </div>
+      <div class="legal-item">
+        <h4>Export-control &amp; end-use</h4>
+        <p>
+          All cross-border technology, goods and service transactions are subject to applicable export-control regulations, end-use declarations and sanctions compliance. We reserve the right to decline any engagement that cannot be structured in full compliance with these regulations.
+        </p>
+      </div>
+      <div class="legal-item">
+        <h4>Honest description of capability</h4>
+        <p>
+          We describe capabilities as we are actually building them, not as we wish them to be. Where a capability is under development, we say so. Where a registration is not yet granted, we say so.
+        </p>
+      </div>
+      <div class="legal-item">
+        <h4>This page is a living document</h4>
+        <p>
+          This page is updated as each new registration, approval or certification is granted. The &ldquo;Last updated&rdquo; date in the page header reflects the most recent material change to the content below.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="close-band">
+  <div class="wrap close-inner">
+    <h2 class="close-title">Running a qualification, due diligence or procurement review?</h2>
+    <p class="close-sub">
+      We respond to qualification and due-diligence requests directly. Tell us the scope of what you need, the programme or counterparty context, and the format your team prefers to receive evidence in.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:compliance@techpavitra.com">
+        Email compliance <span class="arrow">&rarr;</span>
+      </a>
+      <a class="btn btn-ghost" href="/contact">
+        Other enquiries <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+(function(){
+  var canvas = document.getElementById('heroParticles');
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var particles = [];
+  var rafId = null;
+
+  function sizeCanvas(){
+    var parent = canvas.parentElement;
+    var rect = parent.getBoundingClientRect();
+    w = rect.width; h = rect.height;
+    canvas.width  = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    canvas.style.width  = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function seedParticles(){
+    var density = w < 720 ? 0.00014 : 0.00022;
+    var count = Math.max(32, Math.min(110, Math.floor(w * h * density)));
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        r: 1.1 + Math.random() * 1.6
+      });
+    }
+  }
+
+  function draw(animate){
+    ctx.clearRect(0, 0, w, h);
+
+    // dots
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      if (animate) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) { p.vx *= -1; p.x = Math.max(0, Math.min(w, p.x)); }
+        if (p.y < 0 || p.y > h) { p.vy *= -1; p.y = Math.max(0, Math.min(h, p.y)); }
+      }
+      // soft glow halo
+      var grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+      grad.addColorStop(0, 'rgba(230, 209, 160, 0.55)');
+      grad.addColorStop(1, 'rgba(230, 209, 160, 0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // crisp core
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(240, 220, 175, 0.85)';
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // connecting lines
+    var threshold = w < 720 ? 130 : 170;
+    for (var a = 0; a < particles.length; a++) {
+      for (var b = a + 1; b < particles.length; b++) {
+        var dx = particles[a].x - particles[b].x;
+        var dy = particles[a].y - particles[b].y;
+        var d2 = dx*dx + dy*dy;
+        var t2 = threshold * threshold;
+        if (d2 < t2) {
+          var d = Math.sqrt(d2);
+          var alpha = (1 - d / threshold) * 0.42;
+          ctx.strokeStyle = 'rgba(230, 209, 160, ' + alpha.toFixed(3) + ')';
+          ctx.lineWidth = 0.9;
+          ctx.beginPath();
+          ctx.moveTo(particles[a].x, particles[a].y);
+          ctx.lineTo(particles[b].x, particles[b].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    if (animate) rafId = requestAnimationFrame(function(){ draw(true); });
+  }
+
+  function start(){
+    sizeCanvas();
+    seedParticles();
+    if (rafId) cancelAnimationFrame(rafId);
+    draw(!reduced);
+  }
+
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(start, 160);
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    else if (!document.hidden && !reduced && !rafId) { draw(true); }
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
+})();
+</script>
+
+<!-- ============== SITE FOOTER ============== -->
+<footer class="site-foot" role="contentinfo">
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand">
+        <img src="https://i.ibb.co/23jVy5hC/techpavitrawhite.png" alt="TechPavitra">
+      </div>
+      <p class="foot-tag">Engineering reliable electronic, embedded and mechanical systems for India&rsquo;s defence, national security and civilian critical infrastructure.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/capabilities">Capabilities</a></li>
+        <li><a href="/partnerships">Partnerships</a></li>
+        <li><a href="/leadership">Leadership</a></li>
+        <li><a href="/compliance">Compliance</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col foot-addr">
+      <h4>Registered office</h4>
+      <ul>
+        <li>TechPavitra Private Limited</li>
+        <li><em>[Address line 1 &mdash; to be added]</em></li>
+        <li><em>[Address line 2 &mdash; to be added]</em></li>
+        <li><em>[City, State, PIN &mdash; to be added]</em></li>
+        <li>India</li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="mailto:info@techpavitra.com">info@techpavitra.com</a></li>
+        <li><a href="mailto:partnerships@techpavitra.com">partnerships@techpavitra.com</a></li>
+        <li><a href="mailto:compliance@techpavitra.com">compliance@techpavitra.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <div>
+      &copy; <span id="foot-year">2026</span> <strong>TechPavitra Private Limited</strong>.
+      CIN: <em>[To be added]</em>. All rights reserved.
+    </div>
+    <div class="legal">
+      <a href="/compliance">Compliance</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+  <script>document.getElementById('foot-year').textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>

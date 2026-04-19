@@ -1,0 +1,19 @@
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Never commit these — they go in Cloudflare Pages env vars, not in git
+.env
+.env.*
+*.key
+*.pem
+
+# Local build artefacts
+*.zip
+node_modules/
