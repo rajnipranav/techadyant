@@ -111,11 +111,10 @@
   .eyebrow::before {
     content: "" !important; width: 8px !important; height: 8px !important; border-radius: 50% !important;
     background: var(--brass-glow) !important; display: inline-block !important;
-    box-shadow: 0 0 10px var(--brass-glow) !important; animation: pulseDot 1.5s infinite !important;
+    box-shadow: 0 0 10px var(--brass-glow) !important;
     margin-right: 0 !important;
   }
   .eyebrow::after { content: none !important; }
-  @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
 
 margin-top: -68px; padding-top: 80px; .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   /* â”€â”€ Transparent nav: scrolled state â”€â”€ */
@@ -159,149 +158,240 @@ margin-top: -68px; padding-top: 80px; .hero { min-height: 100vh; display: flex; 
   }
   .hero > .wrap { position: relative; z-index: 2; }
 
-  /* ====== Tactical Radar Display ====== */
+  /* ====== Modern Tactical Radar Display ====== */
   @keyframes radarSweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   @keyframes radarPing {
-    0%   { transform: translate(-50%,-50%) scale(0.1); opacity: 0.7; }
-    100% { transform: translate(-50%,-50%) scale(1.0); opacity: 0; }
+    0%   { transform: translate(-50%,-50%) scale(0.06); opacity: 0.9; }
+    100% { transform: translate(-50%,-50%) scale(1.04); opacity: 0; }
   }
-  @keyframes radarBlink { 0%, 100% { opacity: 0.18; } 50% { opacity: 0.88; } }
-  @keyframes ringPulse  { 0%, 100% { opacity: 0.12; } 50% { opacity: 0.32; } }
+  @keyframes radarBlink {
+    0%, 100% { opacity: 0.12; box-shadow: 0 0 4px rgba(230,180,60,0.2); }
+    50%       { opacity: 1;    box-shadow: 0 0 14px rgba(230,180,60,0.75), 0 0 5px rgba(255,220,100,0.5); }
+  }
+  @keyframes ringPulse  { 0%, 100% { opacity: 0.13; } 50% { opacity: 0.30; } }
+  @keyframes hudBlink   { 0%, 88%, 100% { opacity: 1; } 93% { opacity: 0.25; } }
 
-  /* Radar container â€” right half of hero, vertically centred */
+  /* Radar container â€” right side of hero, fully inside overflow boundary */
   .hero-radar {
     position: absolute;
-    right: clamp(-130px, -9vw, -50px);
+    right: 2%;
     top: 50%; transform: translateY(-50%);
-    width: clamp(300px, 40vw, 520px);
+    width: clamp(260px, 32vw, 440px);
     aspect-ratio: 1 / 1;
     pointer-events: none; z-index: 1;
   }
 
-  /* Outer boundary ring */
-  .radar-outer {
+  /* Dark CRT screen background */
+  .radar-screen-bg {
     position: absolute; inset: 0;
     border-radius: 50%;
-    border: 1px solid rgba(14,180,160,0.28);
-    animation: ringPulse 5s ease-in-out infinite;
+    background: radial-gradient(circle at 42% 38%,
+      rgba(0,40,32,0.78) 0%,
+      rgba(0,22,17,0.88) 55%,
+      rgba(0,10,8,0.95) 100%
+    );
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.6),
+                inset 0 0 120px rgba(0,30,24,0.4);
   }
-  /* Second outer tick ring */
-  .radar-outer::after {
+  /* CRT scanlines */
+  .radar-screen-bg::after {
     content: '';
-    position: absolute; inset: -8px;
-    border-radius: 50%;
-    border: 1px solid rgba(14,180,160,0.10);
+    position: absolute; inset: 0; border-radius: 50%;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+    );
   }
 
-  /* Clipping circle â€” grid + sweep stay inside */
-  .radar-body {
-    position: absolute; inset: 0;
-    border-radius: 50%; overflow: hidden;
+  /* Tick marks around perimeter */
+  .radar-tick-wrap { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; }
+  .radar-tick {
+    position: absolute;
+    top: 0; left: calc(50% - 0.5px);
+    width: 1px; height: 50%;
+    transform-origin: bottom center;
   }
-  /* Grid texture */
+  .radar-tick::after {
+    content: '';
+    position: absolute; top: 3px; left: 0;
+    width: 1px; height: 5px;
+    background: rgba(0,220,190,0.35);
+  }
+  .radar-tick.major::after {
+    height: 10px;
+    width: 1.5px; left: -0.25px;
+    background: rgba(0,230,200,0.60);
+  }
+
+  /* Compass labels */
+  .radar-compass { position: absolute; inset: 0; }
+  .radar-compass span {
+    position: absolute;
+    font-family: 'Inter', 'Courier New', monospace;
+    font-size: clamp(7px, 0.65vw, 9px); font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(0,225,195,0.60);
+  }
+  .rN { top: 15%; left: 50%; transform: translateX(-50%); }
+  .rE { right: 15%; top: 50%; transform: translateY(-50%); }
+  .rS { bottom: 15%; left: 50%; transform: translateX(-50%); }
+  .rW { left: 15%; top: 50%; transform: translateY(-50%); }
+
+  /* Clipping circle â€” grid, sweep, cross stay inside */
+  .radar-body { position: absolute; inset: 5%; border-radius: 50%; overflow: hidden; }
   .radar-body::before {
     content: '';
     position: absolute; inset: -32px;
     background-image:
-      linear-gradient(rgba(0,210,190,0.09) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,210,190,0.09) 1px, transparent 1px);
-    background-size: 46px 46px;
+      linear-gradient(rgba(0,205,180,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,205,180,0.07) 1px, transparent 1px);
+    background-size: 38px 38px;
   }
 
-  /* Sweep â€” conic gradient glow trail */
+  /* Sweep: conic gradient glow trail + rotating arm */
   .radar-sweep {
-    position: absolute; inset: 0;
-    border-radius: 50%;
+    position: absolute; inset: 0; border-radius: 50%;
     background: conic-gradient(
       from 0deg,
-      transparent 0deg,
-      transparent 275deg,
-      rgba(0,210,190,0.03) 305deg,
-      rgba(0,210,190,0.14) 355deg,
+      transparent 0deg, transparent 265deg,
+      rgba(0,220,190,0.02) 290deg,
+      rgba(0,220,190,0.09) 330deg,
+      rgba(0,235,205,0.20) 358deg,
       transparent 360deg
     );
-    animation: radarSweep 7s linear infinite;
+    animation: radarSweep 6s linear infinite;
   }
-  /* Sweep arm line */
   .radar-arm {
     position: absolute; top: 50%; left: 50%;
     width: 50%; height: 1px;
     transform-origin: left center;
-    background: linear-gradient(90deg, rgba(0,230,210,0.65), transparent);
-    animation: radarSweep 7s linear infinite;
+    background: linear-gradient(90deg,
+      rgba(0,255,225,0.90) 0%,
+      rgba(0,255,225,0.45) 35%,
+      transparent 100%);
+    filter: blur(0.4px);
+    animation: radarSweep 6s linear infinite;
   }
 
   /* Crosshair */
   .radar-cross { position: absolute; inset: 0; }
   .radar-cross::before {
     content: '';
-    position: absolute; top: 50%; left: 8%; right: 8%; height: 1px;
-    background: rgba(0,210,190,0.13); transform: translateY(-50%);
+    position: absolute; top: 50%; left: 6%; right: 6%; height: 1px;
+    background: rgba(0,205,180,0.14); transform: translateY(-50%);
   }
   .radar-cross::after {
     content: '';
-    position: absolute; left: 50%; top: 8%; bottom: 8%; width: 1px;
-    background: rgba(0,210,190,0.13); transform: translateX(-50%);
+    position: absolute; left: 50%; top: 6%; bottom: 6%; width: 1px;
+    background: rgba(0,205,180,0.14); transform: translateX(-50%);
   }
 
-  /* Concentric rings */
-  .radar-rings { position: absolute; inset: 0; }
+  /* 4 concentric rings */
+  .radar-rings { position: absolute; inset: 5%; }
   .radar-rings span {
     position: absolute; border-radius: 50%;
-    border: 1px solid rgba(14,180,160,0.22);
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
+    border: 1px solid rgba(0,205,180,0.22);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
     animation: ringPulse 5s ease-in-out infinite;
   }
-  .radar-rings span:nth-child(1) { width: 26%; height: 26%; }
-  .radar-rings span:nth-child(2) { width: 52%; height: 52%; animation-delay: 0.9s; }
-  .radar-rings span:nth-child(3) { width: 78%; height: 78%; animation-delay: 1.8s; }
+  .radar-rings span:nth-child(1) { width: 25%; height: 25%; }
+  .radar-rings span:nth-child(2) { width: 50%; height: 50%; animation-delay: 0.9s; }
+  .radar-rings span:nth-child(3) { width: 75%; height: 75%; animation-delay: 1.8s; }
+  .radar-rings span:nth-child(4) { width: 98%; height: 98%; animation-delay: 2.7s; border-color: rgba(0,205,180,0.28); }
 
-  /* Expanding ping rings from center */
-  .radar-pings { position: absolute; inset: 0; }
+  /* Expanding ping rings from centre */
+  .radar-pings { position: absolute; inset: 5%; }
   .radar-pings .radar-ping {
     position: absolute; border-radius: 50%;
-    border: 1px solid rgba(0,230,210,0.38);
+    border: 1px solid rgba(0,245,215,0.42);
     top: 50%; left: 50%;
-    transform: translate(-50%,-50%) scale(0.1);
-    width: 82%; height: 82%;
+    transform: translate(-50%,-50%) scale(0.06);
+    width: 86%; height: 86%;
     animation: radarPing 5.5s ease-out infinite;
   }
   .radar-pings .radar-ping + .radar-ping { animation-delay: 2.75s; }
 
-  /* Center reticle dot */
+  /* Centre reticle dot */
   .radar-center {
-    position: absolute; width: 7px; height: 7px;
-    border-radius: 50%;
-    background: rgba(0,230,210,0.9);
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    box-shadow: 0 0 14px rgba(0,230,210,0.55), 0 0 4px rgba(0,230,210,0.9);
+    position: absolute; width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(0,255,225,1);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    box-shadow: 0 0 18px rgba(0,255,225,0.85), 0 0 6px rgba(0,255,225,1), 0 0 36px rgba(0,255,225,0.25);
   }
+  .radar-center::before, .radar-center::after {
+    content: '';
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(0,255,225,0.40);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+  }
+  .radar-center::before { width: 18px; height: 18px; }
+  .radar-center::after  { width: 30px; height: 30px; border-color: rgba(0,255,225,0.18); }
 
-  /* Brass blip targets */
-  .radar-blips { position: absolute; inset: 0; }
+  /* Brass contact blips */
+  .radar-blips { position: absolute; inset: 5%; }
   .radar-blips div {
     position: absolute;
-    width: 4px; height: 4px; border-radius: 50%;
-    background: rgba(176,139,69,0.92);
-    box-shadow: 0 0 9px rgba(176,139,69,0.55);
-    animation: radarBlink 3.2s ease-in-out infinite;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(235,185,55,0.95);
+    box-shadow: 0 0 10px rgba(235,185,55,0.55);
+    animation: radarBlink 3.5s ease-in-out infinite;
   }
-  .radar-blips div:nth-child(1) { top: 27%; left: 63%; animation-delay: 0.3s; }
-  .radar-blips div:nth-child(2) { top: 61%; left: 36%; animation-delay: 1.5s; }
-  .radar-blips div:nth-child(3) { top: 75%; left: 66%; animation-delay: 2.4s; }
+  .radar-blips div:nth-child(1) { top: 25%; left: 65%; animation-delay: 0.3s; }
+  .radar-blips div:nth-child(2) { top: 63%; left: 34%; animation-delay: 1.7s; }
+  .radar-blips div:nth-child(3) { top: 75%; left: 67%; animation-delay: 2.6s; }
+  .radar-blips div:nth-child(4) { top: 37%; left: 74%; animation-delay: 0.9s; }
 
-  /* Responsive â€” fade out toward edge on tablet, hide on mobile */
-  @media (max-width: 860px) {
-    .hero-radar { opacity: 0.4; right: -160px; width: 270px; }
+  /* HUD corner data overlays */
+  .radar-hud { position: absolute; inset: 0; }
+  .rhud {
+    position: absolute;
+    font-family: 'Inter', 'Courier New', monospace;
+    font-size: clamp(6px, 0.58vw, 8px);
+    font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; line-height: 1.6;
+    color: rgba(0,200,178,0.40);
   }
-  @media (max-width: 640px) { .hero-radar { display: none; } }
+  .rhud span { display: block; }
+  .rhud strong {
+    display: block;
+    font-size: clamp(8px, 0.72vw, 10px); font-weight: 700;
+    color: rgba(0,235,205,0.82);
+    animation: hudBlink 7s ease-in-out infinite;
+  }
+  .rhud-tl { top: 9%;    left: 9%; }
+  .rhud-tr { top: 9%;    right: 9%; text-align: right; }
+  .rhud-bl { bottom: 9%; left: 9%; }
+  .rhud-br { bottom: 9%; right: 9%; text-align: right; }
+  .rhud-tr strong { animation-delay: 1.75s; }
+  .rhud-bl strong { animation-delay: 3.5s; }
+  .rhud-br strong { animation-delay: 5.25s; }
+
+  /* Outer decorative frame rings */
+  .radar-frame {
+    position: absolute; inset: -3px; border-radius: 50%;
+    border: 1px solid rgba(0,205,180,0.32);
+    box-shadow: 0 0 24px rgba(0,205,180,0.10), inset 0 0 24px rgba(0,205,180,0.06);
+  }
+  .radar-frame::before {
+    content: '';
+    position: absolute; inset: -6px; border-radius: 50%;
+    border: 1px solid rgba(0,205,180,0.10);
+  }
+  .radar-frame::after {
+    content: '';
+    position: absolute; inset: 4px; border-radius: 50%;
+    border: 1px solid rgba(0,205,180,0.08);
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) { .hero-radar { width: clamp(220px, 30vw, 380px); } }
+  @media (max-width: 860px)  { .hero-radar { width: 240px; right: -50px; opacity: 0.40; } }
+  @media (max-width: 640px)  { .hero-radar { display: none; } }
 </style>
 </head>
 <body>
 <header class="hero">
-    <div class="hero-glows"><div class="glow-1"></div><div class="glow-2"></div></div><div class="hero-radar" aria-hidden="true"><div class="radar-outer"></div><div class="radar-body"><div class="radar-sweep"></div><div class="radar-arm"></div><div class="radar-cross"></div></div><div class="radar-rings"><span></span><span></span><span></span></div><div class="radar-pings"><div class="radar-ping"></div><div class="radar-ping"></div></div><div class="radar-center"></div><div class="radar-blips"><div></div><div></div><div></div></div></div>
+    <div class="hero-glows"><div class="glow-1"></div><div class="glow-2"></div></div><div class="hero-radar" aria-hidden="true"><div class="radar-screen-bg"></div><div class="radar-tick-wrap"><div class="radar-tick major" style="transform:rotate(0deg)"></div><div class="radar-tick" style="transform:rotate(10deg)"></div><div class="radar-tick" style="transform:rotate(20deg)"></div><div class="radar-tick major" style="transform:rotate(30deg)"></div><div class="radar-tick" style="transform:rotate(40deg)"></div><div class="radar-tick" style="transform:rotate(50deg)"></div><div class="radar-tick major" style="transform:rotate(60deg)"></div><div class="radar-tick" style="transform:rotate(70deg)"></div><div class="radar-tick" style="transform:rotate(80deg)"></div><div class="radar-tick major" style="transform:rotate(90deg)"></div><div class="radar-tick" style="transform:rotate(100deg)"></div><div class="radar-tick" style="transform:rotate(110deg)"></div><div class="radar-tick major" style="transform:rotate(120deg)"></div><div class="radar-tick" style="transform:rotate(130deg)"></div><div class="radar-tick" style="transform:rotate(140deg)"></div><div class="radar-tick major" style="transform:rotate(150deg)"></div><div class="radar-tick" style="transform:rotate(160deg)"></div><div class="radar-tick" style="transform:rotate(170deg)"></div><div class="radar-tick major" style="transform:rotate(180deg)"></div><div class="radar-tick" style="transform:rotate(190deg)"></div><div class="radar-tick" style="transform:rotate(200deg)"></div><div class="radar-tick major" style="transform:rotate(210deg)"></div><div class="radar-tick" style="transform:rotate(220deg)"></div><div class="radar-tick" style="transform:rotate(230deg)"></div><div class="radar-tick major" style="transform:rotate(240deg)"></div><div class="radar-tick" style="transform:rotate(250deg)"></div><div class="radar-tick" style="transform:rotate(260deg)"></div><div class="radar-tick major" style="transform:rotate(270deg)"></div><div class="radar-tick" style="transform:rotate(280deg)"></div><div class="radar-tick" style="transform:rotate(290deg)"></div><div class="radar-tick major" style="transform:rotate(300deg)"></div><div class="radar-tick" style="transform:rotate(310deg)"></div><div class="radar-tick" style="transform:rotate(320deg)"></div><div class="radar-tick major" style="transform:rotate(330deg)"></div><div class="radar-tick" style="transform:rotate(340deg)"></div><div class="radar-tick" style="transform:rotate(350deg)"></div></div><div class="radar-compass"><span class="rN">N</span><span class="rE">E</span><span class="rS">S</span><span class="rW">W</span></div><div class="radar-body"><div class="radar-sweep"></div><div class="radar-arm"></div><div class="radar-cross"></div></div><div class="radar-rings"><span></span><span></span><span></span><span></span></div><div class="radar-pings"><div class="radar-ping"></div><div class="radar-ping"></div></div><div class="radar-center"></div><div class="radar-blips"><div></div><div></div><div></div><div></div></div><div class="radar-hud"><div class="rhud rhud-tl"><span>RANGE</span><strong>50 km</strong></div><div class="rhud rhud-tr"><span>MODE</span><strong>ACTIVE</strong></div><div class="rhud rhud-bl"><span>BEARING</span><strong>270&#xB0;</strong></div><div class="rhud rhud-br"><span>CONTACTS</span><strong>04</strong></div></div><div class="radar-frame"></div></div>
     <div class="wrap">
       <div class="eyebrow">404</div>
       <h1>This page isn&rsquo;t <em>here.</em></h1>
