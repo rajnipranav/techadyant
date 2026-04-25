@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/png" href="https://i.ibb.co/Hmc9JNc/techadyan-favicon-3.png">
-<link rel="apple-touch-icon" href="https://i.ibb.co/Hmc9JNc/techadyan-favicon-3.png">
-<link rel="shortcut icon" href="https://i.ibb.co/Hmc9JNc/techadyan-favicon-3.png">
+<link rel="icon" type="image/png" href="https://i.ibb.co/M5c32xk9/techadyant-favcon.png">
+<link rel="apple-touch-icon" href="https://i.ibb.co/M5c32xk9/techadyant-favcon.png">
+<link rel="shortcut icon" href="https://i.ibb.co/M5c32xk9/techadyant-favcon.png">
 <title>Compliance &amp; Registrations &mdash; TechAdyant</title>
 <meta name="description" content="TechAdyant Private Limited is incorporated under the Companies Act, 2013. We maintain the registrations, licences, approvals and quality certifications required for our scope of operations, and treat compliance as a first-order engineering concern.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -477,8 +477,6 @@
     left: 0; right: 0;
     z-index: 60;
     background: transparent;
-    
-    -webkit-
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
   .site-nav-inner {
@@ -1071,6 +1069,18 @@
   }
   .glow-1 { animation: glowPulse1  9s ease-in-out infinite; }
   .glow-2 { animation: glowPulse2 13s ease-in-out infinite 2s; }
+
+  /* -- Hero dot-grid texture -- */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero > .wrap { position: relative; z-index: 2; }
 </style>
 </head>
 <body>
