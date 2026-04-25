@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/png" href="https://i.ibb.co/gLG7XdfW/techadyant-favicon.png">
-<link rel="apple-touch-icon" href="https://i.ibb.co/gLG7XdfW/techadyant-favicon.png">
-<link rel="shortcut icon" href="https://i.ibb.co/gLG7XdfW/techadyant-favicon.png">
+<link rel="icon" type="image/png" href="https://i.ibb.co/Hmc9JNc/techadyan-favicon-3.png">
+<link rel="apple-touch-icon" href="https://i.ibb.co/Hmc9JNc/techadyan-favicon-3.png">
+<link rel="shortcut icon" href="https://i.ibb.co/Hmc9JNc/techadyan-favicon-3.png">
 <title>Contact &mdash; TechAdyant</title>
 <meta name="description" content="Contact TechAdyant — route your enquiry to the right desk. Defence &amp; national security, partnerships &amp; offsets, consultancy &amp; systems integration, compliance &amp; legal, or general correspondence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -469,13 +469,14 @@
      ==================================================================== */
   .site-nav {
     position: sticky;
+    transition: background .3s ease, border-color .3s ease;
     top: 0;
     left: 0; right: 0;
     z-index: 60;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid var(--line);
+    background: transparent;
+    
+    -webkit-
+    border-bottom: 1px solid rgba(255,255,255,0.15);
   }
   .site-nav-inner {
     max-width: var(--maxw);
@@ -494,7 +495,7 @@
     font-family: "Fraunces", Georgia, serif;
     font-weight: 600;
     font-size: 20px;
-    color: var(--teal-dark);
+    color: rgba(255,255,255,0.95);
     letter-spacing: -0.005em;
     line-height: 1;
     text-decoration: none;
@@ -521,12 +522,12 @@
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.01em;
-    color: var(--body);
+    color: rgba(255,255,255,0.9);
     padding: 8px 2px;
     position: relative;
     transition: color .15s ease;
   }
-  .nav-links a:hover { color: var(--teal-dark); }
+  .nav-links a:hover { color: #ffffff; }
   .nav-links a::after {
     content: "";
     position: absolute;
@@ -539,7 +540,7 @@
   }
   .nav-links a:hover::after { transform: scaleX(1); }
   .nav-links a.is-active {
-    color: var(--teal-dark);
+    color: #ffffff;
     font-weight: 600;
   }
   .nav-links a.is-active::after { transform: scaleX(1); }
@@ -564,12 +565,12 @@
     align-items: center;
     justify-content: center;
     width: 40px; height: 40px;
-    border: 1px solid var(--line);
-    background: var(--white);
+    border: 1px solid rgba(255,255,255,0.35);
+    background: transparent;
     border-radius: 7px;
     cursor: pointer;
     padding: 0;
-    color: var(--teal-dark);
+    color: #ffffff;
   }
   @media (min-width: 860px) { .nav-toggle { display: none; } }
   .nav-toggle svg { width: 20px; height: 20px; }
@@ -1011,20 +1012,10 @@
         rgba(14,90,106,0.88) 100%),
       radial-gradient(900px 480px at 72% 42%, rgba(176,139,69,0.14), transparent 62%),
       radial-gradient(1100px 560px at 28% 70%, rgba(14,90,106,0.30), transparent 65%),
-      url('https://i.ibb.co/sJ6V37qn/techadyantbanner.png') center 20% / cover no-repeat,
       linear-gradient(180deg, var(--teal-deep) 0%, var(--teal-dark) 55%, var(--teal) 100%) !important;
   }
   .hero > .wrap { position: relative; z-index: 2; }
-  #heroParticles {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 1;
-  }
   @media (prefers-reduced-motion: reduce) {
-    #heroParticles { opacity: 0.7; }
   }
 
 
@@ -1049,6 +1040,34 @@
   .eyebrow::after { content: none !important; }
   @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
 
+  /* â”€â”€ Transparent nav: scrolled state â”€â”€ */
+  .site-nav.scrolled {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav.scrolled .nav-brand { color: var(--teal-dark); }
+  .site-nav.scrolled .nav-links a { color: var(--body); }
+  .site-nav.scrolled .nav-links a:hover { color: var(--teal-dark); }
+  .site-nav.scrolled .nav-links a.is-active { color: var(--teal-dark); }
+  .site-nav.scrolled .nav-toggle {
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--teal-dark);
+  }
+  
+  /* -- Slow-breathing hero glows -- */
+  @keyframes glowPulse1 {
+    0%, 100% { opacity: 0.30; transform: scale(1);    }
+    50%       { opacity: 0.55; transform: scale(1.06); }
+  }
+  @keyframes glowPulse2 {
+    0%, 100% { opacity: 0.18; transform: scale(1);    }
+    50%       { opacity: 0.38; transform: scale(1.09); }
+  }
+  .glow-1 { animation: glowPulse1  9s ease-in-out infinite; }
+  .glow-2 { animation: glowPulse2 13s ease-in-out infinite 2s; }
 </style>
 </head>
 <body>
@@ -1057,7 +1076,7 @@
 <nav class="site-nav" aria-label="Primary">
   <div class="site-nav-inner">
     <a class="nav-brand" href="/" aria-label="TechAdyant home">
-      <img src="https://i.ibb.co/hJKKd4w8/techadyant-logo-3.png" alt="TechAdyant">
+      <img src="https://i.ibb.co/WpnqXhP0/techadyant-logo-03.png" alt="TechAdyant">
     </a>
     <ul class="nav-links">
       <li><a href="/" class="">Home</a></li>
@@ -1310,7 +1329,6 @@
 <!-- ================= HERO ================= -->
 <header class="hero">
     <div class="hero-glows"><div class="glow-1"></div><div class="glow-2"></div></div>
-    <canvas id="heroParticles" aria-hidden="true"></canvas>
     <div class="wrap">
     <div class="crumb">
       <a href="/">Home</a>
@@ -1530,170 +1548,6 @@
 </section>
 
 
-<script>
-(function(){
-  var cv = document.getElementById('heroParticles');
-  if (!cv || !cv.getContext) return;
-  var ctx = cv.getContext('2d');
-  
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var rafId = null;
-  var t = 0;
-  var mouse = { x: -1000, y: -1000 };
-  var targetMouse = { x: -1000, y: -1000 };
-
-  // Particles State
-  var particles = [];
-  
-  function resize() {
-      var parent = cv.parentElement;
-      var rect = parent.getBoundingClientRect();
-      W = rect.width; H = rect.height;
-      cv.width = Math.floor(W * dpr);
-      cv.height = Math.floor(H * dpr);
-      cv.style.width = W + 'px';
-      cv.style.height = H + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seedParticles();
-  }
-
-  function seedParticles() {
-      var density = W < 768 ? 0.0001 : 0.00015;
-      var count = Math.max(20, Math.min(80, Math.floor(W * H * density)));
-      particles = [];
-      for (var i = 0; i < count; i++) {
-          particles.push({
-              x: Math.random() * W,
-              y: Math.random() * H,
-              vx: (Math.random() - 0.5) * 0.25,
-              vy: (Math.random() - 0.5) * 0.25,
-              r: 0.8 + Math.random() * 1.5
-          });
-      }
-  }
-
-  window.addEventListener('resize', function(){
-      clearTimeout(window._rsz);
-      window._rsz = setTimeout(resize, 160);
-  });
-  
-  window.addEventListener('mousemove', function(e) {
-      var rect = cv.getBoundingClientRect();
-      targetMouse.x = e.clientX - rect.left;
-      targetMouse.y = e.clientY - rect.top;
-  });
-
-  // Radar Targets
-  var pings = [
-      { a: 0.8,  r: 0.55, state: 0, id: "TGT-ALPHA", alt: "12,400" },
-      { a: 2.15, r: 0.72, state: 0, id: "TGT-BETA",  alt: "8,200" },
-      { a: 4.3,  r: 0.38, state: 0, id: "TGT-GAMMA", alt: "24,000" },
-      { a: 5.1,  r: 0.65, state: 0, id: "TGT-DELTA", alt: "19,500" },
-      { a: 3.5,  r: 0.85, state: 0, id: "TGT-ECHO",  alt: "3,100" }
-  ];
-
-  function draw() {
-      mouse.x += (targetMouse.x - mouse.x) * 0.04;
-      mouse.y += (targetMouse.y - mouse.y) * 0.04;
-
-      ctx.clearRect(0, 0, W, H);
-
-      // --- 1. PARTICLE BACKGROUND ---
-      var threshold = W < 768 ? 100 : 150;
-      for (var i = 0; i < particles.length; i++) {
-          var p = particles[i];
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0 || p.x > W) p.vx *= -1;
-          if (p.y < 0 || p.y > H) p.vy *= -1;
-
-          // Connections
-          for (var j = i + 1; j < particles.length; j++) {
-              var p2 = particles[j];
-              var dx = p.x - p2.x; var dy = p.y - p2.y;
-              var d2 = dx*dx + dy*dy;
-              if (d2 < threshold * threshold) {
-                  var dist = Math.sqrt(d2);
-                  var alpha = (1 - dist / threshold) * 0.15;
-                  ctx.strokeStyle = 'rgba(230, 209, 160, ' + alpha + ')';
-                  ctx.lineWidth = 0.5;
-                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
-              }
-          }
-
-          // Node
-          ctx.fillStyle = 'rgba(230, 209, 160, 0.25)';
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
-      }
-
-      // --- 2. RADAR OVERLAY ---
-      var isDesktop = W > 1024;
-      var cx = isDesktop ? W * 0.75 : W * 0.5;
-      var cy = isDesktop ? H * 0.5 : (W < 768 ? H * 0.7 : H * 0.6);
-      var rx = cx + (mouse.x - W/2) * 0.02;
-      var ry = cy + (mouse.y - H/2) * 0.02;
-      var R = Math.min(W, H) * (isDesktop ? 0.42 : 0.6);
-
-      ctx.save();
-      // Grid
-      ctx.fillStyle = 'rgba(230, 209, 160, 0.04)';
-      var gridS = 40;
-      for(var x = (rx % gridS); x < W; x += gridS) {
-          for(var y = (ry % gridS); y < H; y += gridS) {
-              if (Math.hypot(x - rx, y - ry) < R * 2) {
-                  ctx.beginPath(); ctx.arc(x, y, 0.8, 0, Math.PI * 2); ctx.fill();
-              }
-          }
-      }
-      // Rings
-      ctx.lineWidth = 1;
-      for(var i = 1; i <= 5; i++) {
-          ctx.beginPath(); ctx.arc(rx, ry, R * (i/5), 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(230, 209, 160, ' + (0.03 + (1-i/5)*0.06) + ')';
-          ctx.stroke();
-      }
-      // Sweep
-      var sweep = t * 1.8;
-      for(var j = 0; j < 60; j++) {
-          ctx.beginPath(); ctx.moveTo(rx, ry);
-          ctx.arc(rx, ry, R, sweep - (j/60)*1.2, sweep - ((j-1)/60)*1.2);
-          ctx.fillStyle = 'rgba(230, 209, 160, ' + (Math.pow(1-j/60, 3)*0.2) + ')';
-          ctx.fill();
-      }
-      // Lead Line
-      ctx.beginPath(); ctx.moveTo(rx, ry);
-      ctx.lineTo(rx + Math.cos(sweep)*R, ry + Math.sin(sweep)*R);
-      ctx.strokeStyle = 'rgba(240, 220, 175, 0.8)'; ctx.lineWidth = 2; ctx.stroke();
-
-      // Targets
-      pings.forEach(function(p) {
-          var px = rx + Math.cos(p.a) * R * p.r;
-          var py = ry + Math.sin(p.a) * R * p.r;
-          var diff = (sweep % (Math.PI*2)) - (p.a % (Math.PI*2));
-          if(diff < 0) diff += Math.PI*2;
-          if(diff < 0.1 && diff > 0) p.state = 1.0;
-          if(p.state > 0) {
-              p.state -= 0.012;
-              var a = p.state;
-              ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI*2);
-              ctx.fillStyle = 'rgba(255,255,255,'+a+')'; ctx.fill();
-              if (a > 0.2) {
-                  ctx.font = '10px "Inter", sans-serif'; ctx.fillStyle = 'rgba(230,209,160,'+a+')';
-                  ctx.fillText(p.id, px + 10, py - 10);
-              }
-          }
-      });
-      ctx.restore();
-
-      t += 0.016;
-      if (!reduced) rafId = requestAnimationFrame(draw);
-  }
-
-  resize();
-  if (!reduced) rafId = requestAnimationFrame(draw); else draw();
-})();
-</script>
-
 <!-- ============== SITE FOOTER ============== -->
 <footer class="site-foot" role="contentinfo">
   <div class="foot-grid">
@@ -1750,5 +1604,24 @@
   <script>document.getElementById('foot-year').textContent = new Date().getFullYear();</script>
 </footer>
 
+<script>
+(function(){
+  var nav     = document.querySelector('.site-nav');
+  var logoImg = document.querySelector('.nav-brand img');
+  var whiteSrc = 'https://i.ibb.co/WpnqXhP0/techadyant-logo-03.png';
+  var darkSrc  = 'https://i.ibb.co/hJKKd4w8/techadyant-logo-3.png';
+  function update() {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+      if (logoImg) logoImg.src = darkSrc;
+    } else {
+      nav.classList.remove('scrolled');
+      if (logoImg) logoImg.src = whiteSrc;
+    }
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+</script>
 </body>
 </html>
