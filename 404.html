@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page not found &mdash; TechAdyant</title>
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" href="https://i.ibb.co/M5c32xk9/techadyant-favcon.png">
-<link rel="apple-touch-icon" href="https://i.ibb.co/M5c32xk9/techadyant-favcon.png">
-<link rel="shortcut icon" href="https://i.ibb.co/M5c32xk9/techadyant-favcon.png">
+<link rel="icon" type="image/png" href="https://i.ibb.co/rfwZ4YPq/white-monogram-01.png">
+<link rel="apple-touch-icon" href="https://i.ibb.co/rfwZ4YPq/white-monogram-01.png">
+<link rel="shortcut icon" href="https://i.ibb.co/rfwZ4YPq/white-monogram-01.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -175,8 +174,8 @@ margin-top: -68px; padding-top: 80px; .hero { min-height: 100vh; display: flex; 
   /* Radar container â€” right side of hero, fully inside overflow boundary */
   .hero-radar {
     position: absolute;
-    right: 7%;
-    top: 50%; transform: translateY(-50%);
+    left: 78%;
+    top: calc(50% + 34px); transform: translate(-50%, -50%);
     width: clamp(240px, 30vw, 420px);
     aspect-ratio: 1 / 1;
     pointer-events: none; z-index: 1;
@@ -234,9 +233,9 @@ margin-top: -68px; padding-top: 80px; .hero { min-height: 100vh; display: flex; 
     color: rgba(0,225,195,0.60);
   }
   .rN { top: 15%; left: 50%; transform: translateX(-50%); }
-  .rE { right: 15%; top: 50%; transform: translateY(-50%); }
+  .rE { right: 15%; top: calc(50% + 34px); transform: translate(-50%, -50%); }
   .rS { bottom: 15%; left: 50%; transform: translateX(-50%); }
-  .rW { left: 15%; top: 50%; transform: translateY(-50%); }
+  .rW { left: 15%; top: calc(50% + 34px); transform: translate(-50%, -50%); }
 
   /* Clipping circle â€” grid, sweep, cross stay inside */
   .radar-body { position: absolute; inset: 5%; border-radius: 50%; overflow: hidden; }
