@@ -1118,6 +1118,82 @@
     pointer-events: none;
   }
   .hero > .wrap { position: relative; z-index: 2; }
+
+  /* ====== Hero Premium Animation ====== */
+  @keyframes heroSweep {
+    0%         { transform: translateX(-100%) skewX(-12deg); opacity: 0; }
+    8%         { opacity: 1; }
+    92%        { opacity: 1; }
+    100%       { transform: translateX(500%); skewX(-12deg); opacity: 0; }
+  }
+  @keyframes bracketPulse {
+    0%, 100%   { opacity: 0.12; }
+    50%        { opacity: 0.45; }
+  }
+  @keyframes dotBlink {
+    0%, 100%   { opacity: 0.0; }
+    50%        { opacity: 0.7; }
+  }
+
+  /* Light sweep beams */
+  .hero-fx {
+    position: absolute; inset: 0;
+    overflow: hidden; pointer-events: none; z-index: 1;
+  }
+  .hero-fx::before {
+    content: '';
+    position: absolute; top: -100%; left: -25%;
+    width: 22%; height: 300%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.014) 30%,
+      rgba(255,255,255,0.032) 50%,
+      rgba(255,255,255,0.014) 70%,
+      transparent 100%
+    );
+    animation: heroSweep 20s ease-in-out infinite;
+  }
+  .hero-fx::after {
+    content: '';
+    position: absolute; top: -100%; left: -25%;
+    width: 14%; height: 300%;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(176,139,69,0.03) 50%,
+      transparent 100%
+    );
+    animation: heroSweep 20s ease-in-out infinite 10s;
+  }
+
+  /* Precision corner brackets */
+  .hero-brackets {
+    position: absolute; inset: 28px;
+    pointer-events: none; z-index: 2;
+  }
+  .hero-brackets span {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: rgba(230,209,160,0.35);
+    border-style: solid;
+    animation: bracketPulse 7s ease-in-out infinite;
+  }
+  .hero-brackets span:nth-child(1) { top:0; left:0;  border-width: 1px 0 0 1px; }
+  .hero-brackets span:nth-child(2) { top:0; right:0; border-width: 1px 1px 0 0; animation-delay: 1.75s; }
+  .hero-brackets span:nth-child(3) { bottom:0; left:0;  border-width: 0 0 1px 1px; animation-delay: 3.5s; }
+  .hero-brackets span:nth-child(4) { bottom:0; right:0; border-width: 0 1px 1px 0; animation-delay: 5.25s; }
+
+  /* Small precision dots at bracket corners */
+  .hero-brackets span::before {
+    content: '';
+    position: absolute; width: 3px; height: 3px;
+    background: rgba(230,209,160,0.6);
+    border-radius: 50%;
+    animation: dotBlink 7s ease-in-out infinite;
+  }
+  .hero-brackets span:nth-child(1)::before { top:-1px; left:-1px; }
+  .hero-brackets span:nth-child(2)::before { top:-1px; right:-1px; animation-delay: 1.75s; }
+  .hero-brackets span:nth-child(3)::before { bottom:-1px; left:-1px; animation-delay: 3.5s; }
+  .hero-brackets span:nth-child(4)::before { bottom:-1px; right:-1px; animation-delay: 5.25s; }
 </style>
 </head>
 <body>
@@ -1378,7 +1454,7 @@
 
 <!-- HERO -->
 <header class="hero">
-    <div class="hero-glows"><div class="glow-1"></div><div class="glow-2"></div></div>
+    <div class="hero-glows"><div class="glow-1"></div><div class="glow-2"></div></div><div class="hero-fx" aria-hidden="true"></div><div class="hero-brackets" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="wrap">
     <div class="crumb">
       <a href="/capabilities">Capabilities</a>
