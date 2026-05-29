@@ -1,19 +1,19 @@
-# OS noise
+# Build artefacts
+node_modules/
+.next/
+dist/
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Editor
-.vscode/
+# Editor / OS
 .idea/
+.vscode/
 *.swp
 
-# Never commit these — they go in Cloudflare Pages env vars, not in git
+# Env (don't commit secrets)
 .env
-.env.*
-*.key
-*.pem
+.env.local
+.env.*.local
 
-# Local build artefacts
-*.zip
-node_modules/
+# Local logs
+*.log
