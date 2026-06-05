@@ -1,0 +1,101 @@
+name: IndexNow submit
+
+# Ping IndexNow (Bing, Yandex, et al.) when site pages change, so the
+# corporate site gets re-indexed fast. Static site (no build step), so this
+# runs in GitHub CI on push rather than as a build hook.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Submit every URL in sitemap.xml (full resubmit)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  HOST: techadyant.com
+  INDEXNOW_KEY: 2335ba931b474c20bb3114f9014fd791
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # need the previous commit to diff changed files
+
+      - name: Build URL list and submit to IndexNow
+        shell: bash
+        run: |
+          set -euo pipefail
+          SITE="https://${HOST}"
+          KEYLOC="${SITE}/${INDEXNOW_KEY}.txt"
+
+          # Map an .html file to its canonical (clean) URL; skip 404.
+          map_url() {
+            local f="$1"
+            case "$f" in
+              404.html) return 1 ;;
+              index.html) echo "${SITE}/" ;;
+              *.html) echo "${SITE}/${f%.html}" ;;
+              *) return 1 ;;
+            esac
+          }
+
+          urls=()
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.all }}" = "true" ]; then
+            echo "Manual full resubmit: reading sitemap.xml"
+            while read -r u; do urls+=("$u"); done < <(grep -oP '(?<=<loc>)[^<]+' sitemap.xml)
+          else
+            echo "Diffing changed files in push"
+            changed=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" 2>/dev/null || true)
+            if [ -z "$changed" ]; then
+              changed=$(git diff --name-only HEAD~1 HEAD || true)
+            fi
+            echo "Changed files:"; echo "$changed"
+            sitemap_changed=false
+            while IFS= read -r f; do
+              [ -z "$f" ] && continue
+              [ "$f" = "sitemap.xml" ] && sitemap_changed=true
+              if u=$(map_url "$f"); then urls+=("$u"); fi
+            done <<< "$changed"
+            # If the sitemap itself changed (new/removed page), submit everything.
+            if [ "$sitemap_changed" = true ]; then
+              echo "sitemap.xml changed -> submitting all sitemap URLs"
+              urls=()
+              while read -r u; do urls+=("$u"); done < <(grep -oP '(?<=<loc>)[^<]+' sitemap.xml)
+            fi
+          fi
+
+          # De-duplicate.
+          if [ ${#urls[@]} -eq 0 ]; then
+            echo "No indexable URLs changed - nothing to submit."; exit 0
+          fi
+          mapfile -t urls < <(printf '%s\n' "${urls[@]}" | sort -u)
+          echo "Submitting ${#urls[@]} URL(s):"; printf '  %s\n' "${urls[@]}"
+
+          # Build JSON payload.
+          payload=$(jq -n \
+            --arg host "$HOST" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyloc "$KEYLOC" \
+            --argjson urls "$(printf '%s\n' "${urls[@]}" | jq -R . | jq -s .)" \
+            '{host:$host, key:$key, keyLocation:$keyloc, urlList:$urls}')
+
+          code=$(curl -s -o /tmp/inow_resp -w '%{http_code}' -X POST \
+            'https://api.indexnow.org/IndexNow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data-binary "$payload")
+          echo "IndexNow response: HTTP $code"; cat /tmp/inow_resp || true
+          # 200/202 = accepted. Don't fail the job on a soft rejection.
+          if [ "$code" -ge 400 ]; then
+            echo "::warning::IndexNow returned $code (submission may have been rejected)"
+          fi
